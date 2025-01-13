@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import cameraIcon from "./assets/camera.svg";
-import { urlToBLob } from "./functions.js";
+import { urlToBLob, uploadImgToServer, generateTextFromUrl } from "./functions.js";
 
 export default function App() {
   
@@ -29,18 +29,10 @@ export default function App() {
     const analyzeImage = async () => {
       const last_image_url = images[images.length - 1];
       const image = await urlToBLob(last_image_url);
+      const url = await uploadImgToServer(image);
+      const generatedText = await generateTextFromUrl(url);
 
-      const formData = new FormData();
-      formData.append('image', image);
-      
-      let response = await fetch(`https://api.imgbb.com/1/upload?key=cd016d985edb7a8252293b9296f13217`, {
-        method: 'POST',
-        body: formData
-      });
-
-      let result = await response.json();
-
-      alert(result.data.url);
+      alert(generatedText.content);
     }
 
     analyzeImage();
