@@ -34,7 +34,7 @@ async function generateTextFromUrl(url) {
         content: [
           {
             type: "text",
-            text: "Describe this image in one sentence."
+            text: "Identify the specific plant in the image."
           },
           {
             type: "image_url",

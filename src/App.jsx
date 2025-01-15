@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react"
 import cameraIcon from "./assets/camera.svg";
 import { urlToBLob, uploadImgToServer, generateTextFromUrl } from "./functions.js";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import "@sweetalert2/theme-dark/dark.css"
+
 
 export default function App() {
   
