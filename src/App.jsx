@@ -71,39 +71,42 @@ export default function App() {
 
   return (
     <>
-      <div className="w-screen min-h-screen bg-zinc-800 flex justify-center">
-        <main className="max-w-[400px] h-full rounded text-white py-4 px-2 space-y-4">
+      <div className="w-screen min-h-screen bg-zinc-700 flex justify-center">
+        <main className="max-w-min h-full rounded text-white py-4 px-2 space-y-4 bg-zinc-900">
           
-          <section className="px-2 justify-between items-center">
-            <h1 className="text-4xl font-bold">RG</h1>
-            <p className="text-white/40 mt-1">Developer: Zairus V. Bermillo</p>
-          </section>
+          <div className="sm:w-96">
+            <section className="px-2 justify-between items-center">
+              <h1 className="text-4xl font-bold">RG</h1>
+              <p className="text-white/40 mt-1">Developer: Zairus V. Bermillo</p>
+            </section>
 
-          <section className="relative h-auto">
-            <video 
-              ref={videoRef} 
-              className="w-full h-80 bg-black rounded-lg"
-              autoPlay
-              playsInline
-            >
-            </video>
-            <canvas ref={focusBoxRef} className="w-full h-full absolute top-0 left-0"></canvas>
-            <button onClick={captureImage} className="aspect-square w-16 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 -bottom-9 shadow-lg">
-              <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
-            </button>
-          </section>
+            <section className="relative h-auto">
+              <video 
+                ref={videoRef} 
+                className="w-full h-80 bg-black rounded-lg"
+                autoPlay
+                playsInline
+              >
+              </video>
+              <canvas ref={focusBoxRef} className="w-full h-full absolute top-0 left-0"></canvas>
+              <button onClick={captureImage} className="aspect-square w-16 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 -bottom-9 shadow-lg">
+                <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
+              </button>
+            </section>
 
-          <section className="w-full h-auto min-h-20 flex justify-center items-center">
-            <ul className="flex-1 grid grid-cols-4 gap-3 px-8 my-4">
-            {
-              images.map((image, index) => (
-                <li key={image} class="bg-gray-500 aspect-auto rounded-md overflow-hidden shadow-md flex justify-center items-center">
-                  <img src={image} className="flex-1"/>
-                </li>
-              ))
-            }
-            </ul>
-          </section>
+            <section className="h-auto min-h-20 flex justify-center items-center mt-8">
+              <ul className="flex-1 grid grid-cols-4 gap-3 px-8 my-4">
+              {
+                images.map((image, index) => (
+                  <li key={image} class="bg-gray-500 aspect-auto rounded-md overflow-hidden shadow-md flex justify-center items-center">
+                    <img src={image} className="flex-1"/>
+                  </li>
+                ))
+              }
+              </ul>
+            </section>
+          </div>
+          
 
         </main>
       </div>
