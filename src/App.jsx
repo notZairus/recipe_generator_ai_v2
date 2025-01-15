@@ -82,11 +82,11 @@ export default function App() {
             >
             </video>
             <div className="w-full h-full  absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-              <div className="aspect-square w-64 rounded-xl bg-transparent border">
+              <div className="aspect-square w-64 rounded-xl bg-transparent border mb-10">
 
               </div>
             </div>
-            <button onClick={captureImage} className="aspect-square w-20 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-5">
+            <button onClick={captureImage} className="aspect-square w-16 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-5">
               <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
             </button>
           </section>
@@ -99,7 +99,7 @@ export default function App() {
                   <img src={image} className="flex-1"/>
                 </li>
               ))
-            }``
+            }
             </ul>
           </section>
 
