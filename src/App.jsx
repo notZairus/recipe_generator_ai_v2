@@ -86,7 +86,7 @@ export default function App() {
 
               </div>
             </div>
-            <button onClick={captureImage} className="aspect-square w-20 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-8">
+            <button onClick={captureImage} className="aspect-square w-20 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-5">
               <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
             </button>
           </section>
