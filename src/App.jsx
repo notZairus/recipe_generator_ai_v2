@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import cameraIcon from "./assets/camera.svg";
-import { urlToBLob, uploadImgToServer, generateTextFromUrl } from "./functions.js";
+import { urlToBLob, uploadImgToServer } from "./js/functions.js";
+import { generateTextFromUrl } from "./js/ai.js";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import "@sweetalert2/theme-dark/dark.css"
@@ -12,7 +13,7 @@ export default function App() {
   const [ingredients, setIngredients] = useState([]);
   const videoRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(() => {    
 
     const startCamera = async () => {
       try {
@@ -24,6 +25,7 @@ export default function App() {
     }
 
     startCamera();
+
   }, [])
 
   useEffect(() => {
@@ -42,8 +44,6 @@ export default function App() {
     analyzeImage();
 
   }, [images]);
-
-  
 
 
   function captureImage(e) {
@@ -81,6 +81,11 @@ export default function App() {
               playsInline
             >
             </video>
+            <div className="w-full h-full  absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
+              <div className="aspect-square w-64 rounded-xl bg-transparent border">
+
+              </div>
+            </div>
             <button onClick={captureImage} className="aspect-square w-20 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-8">
               <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
             </button>
@@ -94,7 +99,7 @@ export default function App() {
                   <img src={image} className="flex-1"/>
                 </li>
               ))
-            }
+            }``
             </ul>
           </section>
 
