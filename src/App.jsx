@@ -76,7 +76,7 @@ export default function App() {
           <section className="relative">
             <video 
               ref={videoRef} 
-              className="w-full h-96 bg-black rounded-lg"
+              className="w-full h-68 bg-black rounded-lg"
               autoPlay
               playsInline
             >
