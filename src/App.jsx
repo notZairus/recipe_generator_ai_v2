@@ -74,7 +74,7 @@ export default function App() {
       <div className="w-screen min-h-screen bg-zinc-700 flex justify-center ">
         <main className="max-w-screen h-full rounded text-white flex justify-center mt-3">
           
-          <div className="w-11/12 bg-zinc-900 p-2 rounded-md space-y-2">
+          <div className="w-margin-x max-w-96 bg-zinc-900 p-2 rounded-md space-y-2">
             <section className="px-2 justify-between items-center">
               <h1 className="text-4xl font-bold">RG</h1>
               <p className="text-white/40 mt-1">Developer: Zairus V. Bermillo</p>
