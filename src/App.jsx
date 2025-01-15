@@ -71,10 +71,10 @@ export default function App() {
 
   return (
     <>
-      <div className="w-screen min-h-screen bg-zinc-700 flex justify-center">
-        <main className="max-w-min h-full rounded text-white py-4 px-2 space-y-4 bg-zinc-900">
+      <div className="w-screen min-h-screen bg-zinc-700 flex justify-center ">
+        <main className="max-w-screen h-full rounded text-white flex justify-center mt-3">
           
-          <div className="w-96">
+          <div className="w-11/12 bg-zinc-900 p-2 rounded-md space-y-2">
             <section className="px-2 justify-between items-center">
               <h1 className="text-4xl font-bold">RG</h1>
               <p className="text-white/40 mt-1">Developer: Zairus V. Bermillo</p>
