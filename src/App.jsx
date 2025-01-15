@@ -94,7 +94,7 @@ export default function App() {
               </button>
             </section>
 
-            <section className="h-auto min-h-20 flex justify-center items-center mt-8">
+            <section className="h-auto min-h-20 flex justify-center items-center pt-8">
               <ul className="flex-1 grid grid-cols-4 gap-3 px-8 my-4">
               {
                 images.map((image, index) => (
