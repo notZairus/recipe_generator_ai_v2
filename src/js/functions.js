@@ -21,8 +21,17 @@ async function uploadImgToServer(image) {
   return result.data.url;
 }
 
+function drawFocusBox(canvas) {
+  let quarterWidth = canvas.width / 4;
+  let quarterHeight = canvas.height / 5;
+
+  const context = canvas.getContext('2d');
+  context.strokeStyle = 'white';
+  context.lineWidth = 1;
+
+  context.strokeRect(quarterWidth, quarterHeight, quarterWidth * 2, quarterHeight * 3)
+}
 
 
 
-
-export { urlToBLob, uploadImgToServer }
+export { urlToBLob, uploadImgToServer, drawFocusBox }

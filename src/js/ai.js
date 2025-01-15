@@ -1,3 +1,4 @@
+import { HfInference } from "@huggingface/inference";
 
 
 async function generateTextFromUrl(url) {
@@ -12,7 +13,7 @@ async function generateTextFromUrl(url) {
         content: [
           {
             type: "text",
-            text: "Identify the specific plant in the image."
+            text: "Identify the thing inside the square without using a words no more than 4."
           },
           {
             type: "image_url",

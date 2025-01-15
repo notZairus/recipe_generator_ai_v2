@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import cameraIcon from "./assets/camera.svg";
-import { urlToBLob, uploadImgToServer } from "./js/functions.js";
+import { urlToBLob, uploadImgToServer, drawFocusBox } from "./js/functions.js";
 import { generateTextFromUrl } from "./js/ai.js";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -12,6 +12,7 @@ export default function App() {
   const [images, setImages] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const videoRef = useRef(null);
+  const focusBoxRef = useRef(null);
 
   useEffect(() => {    
 
@@ -23,6 +24,9 @@ export default function App() {
         console.log(error);
       }
     }
+
+    const focusCanvas = focusBoxRef.current;
+    drawFocusBox(focusCanvas);
 
     startCamera();
 
@@ -53,7 +57,9 @@ export default function App() {
     canvas.width = videoRef.current.videoWidth;
     canvas.height = videoRef.current.videoHeight;
 
+    
     context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    drawFocusBox(canvas);
 
     canvas.toBlob((blob) => {
       let newImage = new File([blob], 'new-image.png', {type: 'image/png'});
@@ -66,27 +72,23 @@ export default function App() {
   return (
     <>
       <div className="w-screen min-h-screen bg-zinc-800 flex justify-center">
-        <main className="w-full h-full rounded text-white py-4 px-2 space-y-4">
+        <main className="max-w-[400px] h-full rounded text-white py-4 px-2 space-y-4">
           
           <section className="px-2 justify-between items-center">
             <h1 className="text-4xl font-bold">RG</h1>
             <p className="text-white/40 mt-1">Developer: Zairus V. Bermillo</p>
           </section>
 
-          <section className="relative">
+          <section className="relative h-auto">
             <video 
               ref={videoRef} 
-              className="w-full h-68 bg-black rounded-lg"
+              className="w-full h-80 bg-black rounded-lg"
               autoPlay
               playsInline
             >
             </video>
-            <div className="w-full h-full  absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-              <div className="aspect-square w-64 rounded-xl bg-transparent border mb-10">
-
-              </div>
-            </div>
-            <button onClick={captureImage} className="aspect-square w-16 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 bottom-5">
+            <canvas ref={focusBoxRef} className="w-full h-full absolute top-0 left-0"></canvas>
+            <button onClick={captureImage} className="aspect-square w-16 bg-zinc-800 absolute m-auto flex items-center justify-center rounded-full inset-x-0 -bottom-9 shadow-lg">
               <img src={cameraIcon} alt="camera-icon" className="w-2/3"/>
             </button>
           </section>
